@@ -65,7 +65,7 @@ export default function JwtLoginView() {
       try {
         await login?.(data.email, data.password);
 
-        window.location.href = returnTo || PATH_AFTER_LOGIN;
+        window.location.href = PATH_AFTER_LOGIN;
       } catch (error) {
         console.error(error);
         reset();
