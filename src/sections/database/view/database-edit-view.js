@@ -22,7 +22,7 @@ export default function DatabaseEditView() {
 
   const { id } = params;
 
-  const currentDatabase = _DatabaseList.find((Database) => Database.id === id);
+  const currentDatabase = _userList.find((user) => user.id === id);
 
   return (
     <Container maxWidth={settings.themeStretch ? false : 'lg'}>
