@@ -160,14 +160,14 @@ export default function JobListView() {
   return (
     <Container maxWidth={settings.themeStretch ? false : 'lg'}>
       <CustomBreadcrumbs
-        heading="List"
+        heading="Jobs"
         links={[
           { name: 'Dashboard', href: paths.dashboard.root },
           {
             name: 'Job',
             href: paths.dashboard.job.root,
           },
-          { name: 'List' },
+          
         ]}
         action={
           <Button

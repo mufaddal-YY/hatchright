@@ -21,11 +21,12 @@ import Logo from 'src/components/logo';
 // ----------------------------------------------------------------------
 
 const METHODS = [
+  
   {
-    id: 'jwt',
-    label: 'Jwt',
-    path: paths.auth.jwt.login,
-    icon: '/assets/icons/auth/ic_jwt.svg',
+    id: 'firebase',
+    label: 'Firebase',
+    path: paths.auth.firebase.login,
+    icon: '/assets/icons/auth/ic_firebase.svg',
   },
 ];
 

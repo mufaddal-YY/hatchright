@@ -28,7 +28,7 @@ export default function NavUpgrade() {
       <Stack alignItems="center">
         <Box sx={{ position: 'relative' }}>
           <Avatar src={user?.photoURL} alt={user?.displayName} sx={{ width: 48, height: 48 }} />
-          <Label
+          {/* <Label
             color="success"
             variant="filled"
             sx={{
@@ -41,12 +41,12 @@ export default function NavUpgrade() {
             }}
           >
             Free
-          </Label>
+          </Label> */}
         </Box>
 
         <Stack spacing={0.5} sx={{ mt: 1.5, mb: 2 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            Hi! {user?.displayName}
           </Typography>
 
           <Typography variant="body2" noWrap sx={{ color: 'text.disabled' }}>
@@ -55,8 +55,22 @@ export default function NavUpgrade() {
         </Stack>
 
         <Button variant="contained" href={paths.minimalUI} target="_blank" rel="noopener">
-          Upgrade to Pro
+         Contact Support
         </Button>
+
+        {/* <div>
+          <Typography gutterBottom variant="subtitle1">
+            {`${translate('docs.hi')}, ${user?.displayName}`}
+          </Typography>
+
+          <Typography variant="body2" sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}>
+            Need help?
+          </Typography>
+        </div>
+
+        <Button href={PATH_DASHBOARD.root} target="_blank" rel="noopener" variant="contained">
+          Contact Support
+        </Button> */}
       </Stack>
     </Stack>
   );

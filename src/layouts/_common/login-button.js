@@ -9,7 +9,8 @@ import { useAuthContext } from 'src/auth/hooks';
 // ----------------------------------------------------------------------
 
 const loginPaths = {
-  jwt: paths.auth.jwt.login,
+ 
+  firebase: paths.auth.firebase.login,
 };
 
 export default function LoginButton({ sx }) {

@@ -4,7 +4,7 @@ import { UserCardsView } from 'src/sections/user/view';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Dashboard: User Cards',
+  title: 'Dashboard: Candidate',
 };
 
 export default function UserCardsPage() {

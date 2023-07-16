@@ -9,7 +9,8 @@ import { useAuthContext } from '../hooks';
 // ----------------------------------------------------------------------
 
 const loginPaths = {
-  jwt: paths.auth.jwt.login,
+
+  firebase: paths.auth.firebase.login,
 };
 
 // ----------------------------------------------------------------------

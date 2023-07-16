@@ -4,7 +4,7 @@ import { UserProfileView } from 'src/sections/user/view';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Dashboard: User Profile',
+  title: 'Dashboard: Candidate Profile',
 };
 
 export default function UserProfilePage() {

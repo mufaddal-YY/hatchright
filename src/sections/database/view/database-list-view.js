@@ -149,11 +149,11 @@ export default function DatabaseListView() {
     <>
       <Container maxWidth={settings.themeStretch ? false : 'lg'}>
         <CustomBreadcrumbs
-          heading="List"
+          heading="Database"
           links={[
             { name: 'Dashboard', href: paths.dashboard.root },
             { name: 'Database', href: paths.dashboard.database.root },
-            { name: 'List' },
+            
           ]}
           action={
             <Button

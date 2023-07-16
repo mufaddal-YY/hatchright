@@ -9,13 +9,14 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputAdornment from '@mui/material/InputAdornment';
 // routes
 import { paths } from 'src/routes/paths';
-import { useSearchParams } from 'src/routes/hook';
 import { RouterLink } from 'src/routes/components';
+import { useSearchParams } from 'src/routes/hook';
 // config
 import { PATH_AFTER_LOGIN } from 'src/config-global';
 // hooks
@@ -28,8 +29,8 @@ import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 // ----------------------------------------------------------------------
 
-export default function JwtLoginView() {
-  const { login } = useAuthContext();
+export default function FirebaseLoginView() {
+  const { login, loginWithGoogle, loginWithGithub, loginWithTwitter } = useAuthContext();
 
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -45,8 +46,8 @@ export default function JwtLoginView() {
   });
 
   const defaultValues = {
-    email: 'demo@minimals.cc',
-    password: 'demo1234',
+    email: '',
+    password: '',
   };
 
   const methods = useForm({
@@ -65,7 +66,7 @@ export default function JwtLoginView() {
       try {
         await login?.(data.email, data.password);
 
-        window.location.href = PATH_AFTER_LOGIN;
+        window.location.href = returnTo || PATH_AFTER_LOGIN;
       } catch (error) {
         console.error(error);
         reset();
@@ -75,6 +76,30 @@ export default function JwtLoginView() {
     [login, reset, returnTo]
   );
 
+  const handleGoogleLogin = async () => {
+    try {
+      await loginWithGoogle?.();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleGithubLogin = async () => {
+    try {
+      await loginWithGithub?.();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleTwitterLogin = async () => {
+    try {
+      await loginWithTwitter?.();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const renderHead = (
     <Stack spacing={2} sx={{ mb: 5 }}>
       <Typography variant="h4">Sign in to Minimal</Typography>
@@ -82,7 +107,7 @@ export default function JwtLoginView() {
       <Stack direction="row" spacing={0.5}>
         <Typography variant="body2">New user?</Typography>
 
-        <Link component={RouterLink} href={paths.auth.jwt.register} variant="subtitle2">
+        <Link component={RouterLink} href={paths.auth.firebase.register} variant="subtitle2">
           Create an account
         </Link>
       </Stack>
@@ -110,7 +135,14 @@ export default function JwtLoginView() {
         }}
       />
 
-      <Link variant="body2" color="inherit" underline="always" sx={{ alignSelf: 'flex-end' }}>
+      <Link
+        component={RouterLink}
+        href={paths.auth.firebase.forgotPassword}
+        variant="body2"
+        color="inherit"
+        underline="always"
+        sx={{ alignSelf: 'flex-end' }}
+      >
         Forgot password?
       </Link>
 
@@ -127,15 +159,44 @@ export default function JwtLoginView() {
     </Stack>
   );
 
+  const renderLoginOption = (
+    <div>
+      <Divider
+        sx={{
+          my: 2.5,
+          typography: 'overline',
+          color: 'text.disabled',
+          '&::before, ::after': {
+            borderTopStyle: 'dashed',
+          },
+        }}
+      >
+        OR
+      </Divider>
+
+      <Stack direction="row" justifyContent="center" spacing={2}>
+        <IconButton onClick={handleGoogleLogin}>
+          <Iconify icon="eva:google-fill" color="#DF3E30" />
+        </IconButton>
+
+        <IconButton color="inherit" onClick={handleGithubLogin}>
+          <Iconify icon="eva:github-fill" />
+        </IconButton>
+
+        <IconButton onClick={handleTwitterLogin}>
+          <Iconify icon="eva:twitter-fill" color="#1C9CEA" />
+        </IconButton>
+      </Stack>
+    </div>
+  );
+
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       {renderHead}
 
-      <Alert severity="info" sx={{ mb: 3 }}>
-        Use email : <strong>demo@minimals.cc</strong> / password :<strong> demo1234</strong>
-      </Alert>
-
       {renderForm}
+
+      {renderLoginOption}
     </FormProvider>
   );
 }

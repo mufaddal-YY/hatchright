@@ -11,7 +11,7 @@ import { useResponsive } from 'src/hooks/use-responsive';
 // hooks
 import { useMockedUser } from 'src/hooks/use-mocked-user';
 // components
-import Logo from 'src/components/logo';
+import Logo1 from 'src/components/logo1';
 import Scrollbar from 'src/components/scrollbar';
 import { usePathname } from 'src/routes/hook';
 import { NavSectionVertical } from 'src/components/nav-section';
@@ -62,7 +62,7 @@ export default function NavVertical({ openNav, onCloseNav }) {
           flexShrink: 0,
         }}
       >
-        <Logo sx={{ mt: 3, ml: 4, mb: 1 }} />
+        <Logo1 sx={{ mt: 3, ml: 4, mb: 1 }} />
 
         <Button
           component={NextLink}

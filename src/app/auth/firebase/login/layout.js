@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // auth
 import { GuestGuard } from 'src/auth/guard';
 // components
-import { AuthClassicLayout } from 'src/layouts/auth';
+import AuthClassicLayout from 'src/layouts/auth/classic';
 
 // ----------------------------------------------------------------------
 
