@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 // hooks
-import { useMockedUser } from 'src/hooks/use-mocked-user';
+import { useAuthContext } from 'src/auth/hooks/use-auth-context';
 // routes
 import { paths } from 'src/routes/paths';
 // locales
@@ -15,7 +15,7 @@ import Label from 'src/components/label';
 // ----------------------------------------------------------------------
 
 export default function NavUpgrade() {
-  const { user } = useMockedUser();
+  const { user } = useAuthContext();
 
   return (
     <Stack
@@ -54,7 +54,7 @@ export default function NavUpgrade() {
           </Typography>
         </Stack>
 
-        <Button variant="contained" href={paths.minimalUI} target="_blank" rel="noopener">
+        <Button variant="contained" href={paths.dashboard.root} target="_blank" rel="noopener">
          Contact Support
         </Button>
 

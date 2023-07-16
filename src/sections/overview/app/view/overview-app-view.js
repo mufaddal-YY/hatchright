@@ -45,7 +45,7 @@ export default function OverviewAppView() {
           <AppWidgetSummary
             title="Jobs Posted"
             percent={2.6}
-            total={18765}
+            total={1765}
             chart={{
               series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
             }}
